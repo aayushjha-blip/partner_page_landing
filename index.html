@@ -1,374 +1,619 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stable Money – Partner Program</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company Intelligence Report · Rockwell & Regal Rexnord</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --forest:   #0B2218;
-  --gold:     #C8901A;
-  --gold2:    #E8A820;
-  --cream:    #FAF7F2;
-  --white:    #FFFFFF;
-  --ink:      #0F1A12;
-  --rule:     rgba(200,144,26,0.25);
-}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0a0e1a;
+      color: #e8e4dc;
+      min-height: 100vh;
+    }
 
-html, body { height: 100%; overflow: hidden; }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--forest);
-  display: flex;
-  height: 100vh;
-}
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 56px;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20px; left: 50%;
+      transform: translateX(-50%);
+      width: 1px; height: 60px;
+      background: linear-gradient(to bottom, transparent, #d4a843);
+    }
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #d4a843;
+      margin-bottom: 16px;
+      margin-top: 60px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .hero-title span { color: #d4a843; }
+    .hero-sub {
+      font-size: 15px;
+      color: #8a8fa8;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
 
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none; z-index: 999;
-}
+    /* TABS */
+    .tab-nav {
+      display: flex;
+      gap: 4px;
+      background: #12172a;
+      border: 1px solid #1e2640;
+      border-radius: 12px;
+      padding: 4px;
+      margin-bottom: 40px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      flex: 1;
+      min-width: 160px;
+      padding: 10px 16px;
+      background: none;
+      border: none;
+      border-radius: 8px;
+      color: #8a8fa8;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      background: #d4a843;
+      color: #0a0e1a;
+      font-weight: 600;
+    }
+    .tab-btn:hover:not(.active) {
+      color: #e8e4dc;
+      background: #1a2035;
+    }
 
-/* ─── LEFT PANEL ─────────────────────────────────────── */
-.left {
-  width: 46%;
-  background: var(--forest);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 44px 52px;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
+    /* PANELS */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
 
-.left::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
-  opacity: 0.35;
-}
+    /* SECTION */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .section-sub {
+      font-size: 13px;
+      color: #8a8fa8;
+      margin-bottom: 28px;
+    }
 
-.ghost-num {
-  position: absolute;
-  right: -60px; bottom: -120px;
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 32vw;
-  font-weight: 900;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(200,144,26,0.07);
-  pointer-events: none;
-  user-select: none;
-}
+    /* STAT ROW */
+    .stat-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .stat-pill {
+      background: #12172a;
+      border: 1px solid #1e2640;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+    }
+    .stat-pill span { color: #d4a843; font-weight: 600; }
 
-/* Logo */
-.logo {
-  display: flex; align-items: center; gap: 0;
-  animation: up 0.55s ease both;
-  position: relative; z-index: 1;
-}
-.logo-wordmark {
-  font-family: 'Fraunces', serif;
-  font-weight: 700; font-size: 1.05rem;
-  color: var(--white); letter-spacing: -0.01em;
-}
-.logo-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--gold2); margin: 0 8px 1px;
-}
-.logo-tag {
-  font-size: 0.65rem; font-weight: 500;
-  letter-spacing: 0.13em; text-transform: uppercase;
-  color: var(--gold);
-}
+    /* CARD GRID */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: #12172a;
+      border: 1px solid #1e2640;
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .card.gold::before  { background: linear-gradient(90deg, #d4a843, #f0c96a); }
+    .card.blue::before  { background: linear-gradient(90deg, #3a7bd5, #5e9cf5); }
+    .card.green::before { background: linear-gradient(90deg, #2ecc71, #52e398); }
+    .card-icon { font-size: 24px; margin-bottom: 12px; }
+    .card-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8a8fa8;
+      margin-bottom: 6px;
+    }
+    .card-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #d4a843;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: #8a8fa8;
+      line-height: 1.6;
+    }
 
-/* Copy block */
-.copy {
-  flex: 1;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 28px 0;
-  position: relative; z-index: 1;
-}
+    /* ORG CHART */
+    .org-chart {
+      background: #12172a;
+      border: 1px solid #1e2640;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+    }
+    .org-chart-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #d4a843;
+      margin-bottom: 24px;
+    }
+    .org-tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .org-node {
+      background: #0a0e1a;
+      border: 1px solid #1e2640;
+      border-radius: 10px;
+      padding: 12px 20px;
+      text-align: center;
+      min-width: 160px;
+    }
+    .org-node.top { border-color: #d4a843; background: linear-gradient(135deg, #1a1608, #0a0e1a); }
+    .org-node-title { font-size: 13px; font-weight: 600; color: #e8e4dc; }
+    .org-node-role  { font-size: 11px; color: #8a8fa8; margin-top: 2px; }
 
-.eyebrow {
-  font-size: 0.67rem; font-weight: 500;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 10px;
-  animation: up 0.55s 0.06s ease both;
-}
-.eyebrow::before {
-  content: '';
-  width: 24px; height: 1px;
-  background: var(--gold); opacity: 0.55;
-}
+    .vline {
+      width: 1px; height: 24px;
+      background: #1e2640;
+      margin: 0 auto;
+    }
+    .hrow {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hrow-item { display: flex; flex-direction: column; align-items: center; }
 
-.headline {
-  font-family: 'Fraunces', serif;
-  font-weight: 900;
-  font-size: clamp(2.2rem, 3.2vw, 3.4rem);
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-  color: var(--white);
-  animation: up 0.55s 0.1s ease both;
-  margin-bottom: 6px;
-}
-.headline em {
-  font-style: italic;
-  color: var(--gold2);
-}
-.headline .dim {
-  color: rgba(255,255,255,0.32);
-  font-style: italic;
-  font-weight: 300;
-}
+    .org-seg {
+      background: #1a2035;
+      border: 1px solid #2a3550;
+      border-radius: 10px;
+      padding: 12px 14px;
+      text-align: center;
+      min-width: 150px;
+      max-width: 210px;
+    }
+    .org-seg-title { font-size: 12px; font-weight: 600; color: #d4a843; }
+    .org-seg-desc  { font-size: 11px; color: #8a8fa8; margin-top: 4px; line-height: 1.4; }
 
-.rule {
-  width: 100%; height: 1px;
-  background: var(--rule);
-  margin: 22px 0;
-  animation: up 0.55s 0.15s ease both;
-}
+    .tag {
+      display: inline-block;
+      background: #1a2035;
+      border: 1px solid #2a3550;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #8a8fa8;
+      margin: 3px;
+    }
 
-.sub {
-  font-size: 0.9rem; font-weight: 300;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.75; max-width: 360px;
-  margin-bottom: 30px;
-  animation: up 0.55s 0.19s ease both;
-}
+    /* TABLE */
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+    }
+    .comp-table th {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8a8fa8;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #1e2640;
+    }
+    .comp-table td {
+      padding: 14px 16px;
+      font-size: 13px;
+      border-bottom: 1px solid #12172a;
+      vertical-align: top;
+    }
+    .comp-table tr:hover td { background: #12172a; }
 
-.stats {
-  display: flex; gap: 0;
-  margin-bottom: 30px;
-  animation: up 0.55s 0.23s ease both;
-}
-.stat {
-  padding-right: 24px; margin-right: 24px;
-  border-right: 1px solid rgba(200,144,26,0.18);
-}
-.stat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
-.stat-val {
-  font-family: 'Fraunces', serif;
-  font-weight: 700; font-size: 1.55rem;
-  color: var(--gold2); letter-spacing: -0.02em; line-height: 1;
-}
-.stat-lbl {
-  font-size: 0.65rem; font-weight: 500;
-  color: rgba(255,255,255,0.25);
-  letter-spacing: 0.07em; text-transform: uppercase;
-  margin-top: 5px;
-}
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .badge-high { background: #1a3a1a; color: #52e398; }
+    .badge-med  { background: #2a2510; color: #f0c96a; }
+    .badge-low  { background: #2a1515; color: #f07474; }
 
-.for-block { animation: up 0.55s 0.27s ease both; }
-.for-label {
-  font-size: 0.62rem; font-weight: 600;
-  letter-spacing: 0.11em; text-transform: uppercase;
-  color: rgba(255,255,255,0.18); margin-bottom: 10px;
-}
-.chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip {
-  font-size: 0.74rem; font-weight: 500;
-  color: rgba(255,255,255,0.48);
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 4px; padding: 4px 10px;
-  transition: color 0.2s, border-color 0.2s;
-}
-.chip:hover { color: var(--gold2); border-color: rgba(200,144,26,0.3); }
+    /* TCS */
+    .tcs-highlight {
+      background: linear-gradient(135deg, #0d1520, #12172a);
+      border: 1px solid #d4a843;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .tcs-highlight-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: #d4a843;
+      margin-bottom: 10px;
+    }
+    .tcs-highlight-body { font-size: 13px; color: #8a8fa8; line-height: 1.7; }
 
-/* Footer of left */
-.left-footer {
-  display: flex; align-items: flex-end; justify-content: flex-end;
-  animation: up 0.55s 0.32s ease both;
-  position: relative; z-index: 1;
-}
-.sebi {
-  font-size: 0.6rem; font-weight: 500;
-  color: rgba(255,255,255,0.16);
-  letter-spacing: 0.07em; text-align: right; line-height: 1.6;
-}
+    .tcs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .tcs-card {
+      background: #12172a;
+      border: 1px solid #1e2640;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .tcs-card-icon  { font-size: 22px; margin-bottom: 10px; }
+    .tcs-card-title { font-weight: 600; font-size: 14px; color: #e8e4dc; margin-bottom: 8px; }
+    .tcs-card-body  { font-size: 13px; color: #8a8fa8; line-height: 1.6; }
 
-/* ─── RIGHT PANEL ─────────────────────────────────────── */
-.right {
-  flex: 1;
-  background: var(--cream);
-  display: flex; flex-direction: column;
-  position: relative; overflow: hidden;
-  animation: slideR 0.6s 0.08s ease both;
-}
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #1e2640, transparent);
+      margin: 32px 0;
+    }
 
-/* angled cut */
-.right::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0; width: 44px;
-  background: var(--forest);
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  z-index: 5; pointer-events: none;
-}
+    .small-sub {
+      font-size: 11px;
+      color: #4a5070;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-/* gold top bar */
-.right::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 44px; right: 0; height: 3px;
-  background: linear-gradient(to right, var(--gold), var(--gold2) 60%, transparent);
-  z-index: 6;
-}
-
-.form-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 36px 18px 60px;
-  background: var(--white);
-  border-bottom: 1px solid rgba(0,0,0,0.07);
-  position: relative; z-index: 4; flex-shrink: 0;
-}
-.form-header-title {
-  font-family: 'Fraunces', serif;
-  font-size: 0.95rem; font-weight: 700;
-  color: var(--ink); letter-spacing: -0.01em;
-}
-.form-header-sub {
-  font-size: 0.72rem; color: #999; margin-top: 2px;
-}
-.live-badge {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 0.68rem; font-weight: 600;
-  color: #2A7D50;
-  background: rgba(42,125,80,0.08);
-  border: 1px solid rgba(42,125,80,0.18);
-  padding: 5px 12px; border-radius: 100px;
-  letter-spacing: 0.04em; text-transform: uppercase;
-}
-.live-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: #2A7D50;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-/* THE FORM — full height iframe */
-.typeform-frame {
-  flex: 1;
-  border: none;
-  width: 100%;
-  min-height: 0;
-  display: block;
-  position: relative; z-index: 2;
-}
-
-@keyframes up {
-  from { opacity:0; transform:translateY(14px); }
-  to   { opacity:1; transform:none; }
-}
-@keyframes slideR {
-  from { opacity:0; transform:translateX(20px); }
-  to   { opacity:1; transform:none; }
-}
-
-@media (max-width: 860px) {
-  html, body { height: auto; overflow: auto; }
-  body { flex-direction: column; }
-  .left { width: 100%; padding: 36px 28px; }
-  .left::before { display: none; }
-  .ghost-num { display: none; }
-  .right::before { display: none; }
-  .right::after { left: 0; }
-  .form-header { padding: 18px 24px; }
-  .typeform-frame { height: 88vh; }
-  .headline { font-size: 2.2rem; }
-}
-</style>
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      padding: 24px 0;
+      border-top: 1px solid #1e2640;
+      font-size: 11px;
+      color: #4a5070;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  </style>
 </head>
 <body>
+<div class="container">
 
-<!-- LEFT -->
-<div class="left">
-  <div class="ghost-num">%</div>
-
-  <div class="logo">
-    <span class="logo-wordmark">Stable Money</span>
-    <span class="logo-dot"></span>
-    <span class="logo-tag">Partner Program</span>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Strategic Intelligence Report</div>
+    <h1 class="hero-title">Company Brief &amp;<br><span>TCS Collaboration</span></h1>
+    <p class="hero-sub">Rockwell Automation · Regal Rexnord · TCS Partnership Opportunities</p>
   </div>
 
-  <div class="copy">
-    <div class="eyebrow">Earn on every client you refer</div>
+  <!-- TAB NAV -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('rockwell', this)">🔵 Rockwell Automation</button>
+    <button class="tab-btn"        onclick="switchTab('regal',    this)">🟡 Regal Rexnord</button>
+    <button class="tab-btn"        onclick="switchTab('tcs',      this)">🤝 TCS Collaboration</button>
+  </div>
 
-    <h1 class="headline">
-      Your network.<br>
-      <em>Your earnings.</em><br>
-      <span class="dim">On autopilot.</span>
-    </h1>
+  <!-- ===== ROCKWELL PANEL ===== -->
+  <div id="panel-rockwell" class="tab-panel active">
+    <div class="section-title">Rockwell Automation</div>
+    <div class="section-sub">NYSE: ROK · Founded 1903 · Milwaukee, WI · World's Largest Dedicated Industrial Automation Company</div>
 
-    <div class="rule"></div>
+    <div class="stat-row">
+      <div class="stat-pill">Revenue (FY2025): <span>$8.34B</span></div>
+      <div class="stat-pill">Market Cap: <span>~$41B</span></div>
+      <div class="stat-pill">Employees: <span>~28,000</span></div>
+      <div class="stat-pill">Countries: <span>80+</span></div>
+      <div class="stat-pill">Founded: <span>1903</span></div>
+    </div>
 
-    <p class="sub">
-      Get a unique referral link. Every investment your clients make through Stable Money products is tracked to you — and you earn regular commissions, straight to your bank.
-    </p>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-val">1.1%</div>
-        <div class="stat-lbl">Max commission</div>
+    <div class="card-grid">
+      <div class="card gold">
+        <div class="card-icon">🏭</div>
+        <div class="card-label">Core Identity</div>
+        <div class="card-value">Industrial Automation</div>
+        <div class="card-desc">World's largest company solely dedicated to industrial automation and information. Serves automotive, semiconductor, food &amp; beverage, oil &amp; gas, mining, and life sciences sectors.</div>
       </div>
-      <div class="stat">
-        <div class="stat-val">Zero</div>
-        <div class="stat-lbl">Cost to join</div>
+      <div class="card blue">
+        <div class="card-icon">💡</div>
+        <div class="card-label">Key Brands</div>
+        <div class="card-value">Allen-Bradley</div>
+        <div class="card-desc">Allen-Bradley (hardware), FactoryTalk (software suite), and Plex (cloud MES). Dominant PLC (Programmable Logic Controller) share in North America.</div>
       </div>
-      <div class="stat">
-        <div class="stat-val">2 days</div>
-        <div class="stat-lbl">To go live</div>
+      <div class="card green">
+        <div class="card-icon">🚀</div>
+        <div class="card-label">Strategy</div>
+        <div class="card-value">Software + ARR</div>
+        <div class="card-desc">Moving upmarket via cloud MES, analytics, IIoT platforms. Recurring revenue exceeds 35% of total revenue — targeting subscription-led growth.</div>
       </div>
     </div>
 
-    <div class="for-block">
-      <div class="for-label">Built for</div>
-      <div class="chips">
-        <span class="chip">MFDs &amp; IFAs</span>
-        <span class="chip">Chartered Accountants</span>
-        <span class="chip">LIC Agents</span>
-        <span class="chip">Finance Creators</span>
-        <span class="chip">Insurance Advisors</span>
+    <!-- ROCKWELL ORG CHART -->
+    <div class="org-chart">
+      <div class="org-chart-label">📊 Organizational Structure</div>
+      <div class="org-tree">
+        <div class="org-node top">
+          <div class="org-node-title">Blake Moret</div>
+          <div class="org-node-role">Chairman &amp; CEO</div>
+        </div>
+        <div class="vline"></div>
+        <div class="hrow">
+          <div class="hrow-item">
+            <div class="vline"></div>
+            <div class="org-node"><div class="org-node-title">CFO</div><div class="org-node-role">Chief Financial Officer</div></div>
+          </div>
+          <div class="hrow-item">
+            <div class="vline"></div>
+            <div class="org-node"><div class="org-node-title">CTO</div><div class="org-node-role">Chief Technology Officer</div></div>
+          </div>
+          <div class="hrow-item">
+            <div class="vline"></div>
+            <div class="org-node"><div class="org-node-title">COO</div><div class="org-node-role">Chief Operating Officer</div></div>
+          </div>
+        </div>
+        <div class="vline"></div>
+        <p class="small-sub" style="margin-bottom:12px;text-align:center;">Three Operating Segments</p>
+        <div class="hrow">
+          <div class="org-seg">
+            <div class="org-seg-title">Intelligent Devices</div>
+            <div class="org-seg-desc">PLCs, sensors, drives, safety products, motion control hardware</div>
+          </div>
+          <div class="org-seg">
+            <div class="org-seg-title">Software &amp; Control</div>
+            <div class="org-seg-desc">FactoryTalk, Plex MES, analytics, cloud platforms, IIoT</div>
+          </div>
+          <div class="org-seg">
+            <div class="org-seg-title">Lifecycle Services</div>
+            <div class="org-seg-desc">Remote monitoring, cybersecurity, consulting, maintenance</div>
+          </div>
+        </div>
+        <div style="margin-top:20px;text-align:center;">
+          <p class="small-sub" style="margin-bottom:8px;">Geographic Presence</p>
+          <span class="tag">North America (HQ)</span>
+          <span class="tag">EMEA</span>
+          <span class="tag">Asia Pacific</span>
+          <span class="tag">Latin America</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="left-footer">
-    <div class="sebi">SEBI Registered · Stable Finserv Pvt. Ltd.</div>
-  </div>
-</div>
-
-<!-- RIGHT -->
-<div class="right">
-  <div class="form-header">
-    <div>
-      <div class="form-header-title">Partner Application</div>
-      <div class="form-header-sub">Under 3 minutes · Our team calls within 24 hrs</div>
+    <div class="divider"></div>
+    <div class="section-title" style="font-size:18px;margin-bottom:16px;">Recent Strategic Moves</div>
+    <div class="card-grid">
+      <div class="tcs-card"><div class="tcs-card-icon">🛒</div><div class="tcs-card-title">Plex (2021)</div><div class="tcs-card-body">Cloud-based MES acquisition to accelerate manufacturing software and ARR growth.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">🤖</div><div class="tcs-card-title">Clearpath Robotics (2023)</div><div class="tcs-card-body">AMR (Autonomous Mobile Robot) acquisition for factory and warehouse automation.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">☁️</div><div class="tcs-card-title">Microsoft Alliance</div><div class="tcs-card-body">Expanded Azure partnership for cloud analytics and IIoT platforms at scale.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">🔐</div><div class="tcs-card-title">Verve Industrial</div><div class="tcs-card-body">OT cybersecurity acquisition for critical infrastructure protection.</div></div>
     </div>
-    <div class="live-badge"><span class="live-dot"></span>Free to join</div>
-  </div>
+  </div><!-- /rockwell panel -->
 
-  <iframe
-    class="typeform-frame"
-    src="https://form.typeform.com/to/L3J7Pcwl?typeform-source=stablemoney.in"
-    allow="camera; microphone; autoplay; encrypted-media;"
-    title="Stable Money Partner Application"
-    frameborder="0">
-  </iframe>
-</div>
+  <!-- ===== REGAL PANEL ===== -->
+  <div id="panel-regal" class="tab-panel">
+    <div class="section-title">Regal Rexnord Corporation</div>
+    <div class="section-sub">NYSE: RRX · Founded 1955 · Milwaukee, WI · Leading Motion Control &amp; Power Transmission Manufacturer</div>
 
+    <div class="stat-row">
+      <div class="stat-pill">Revenue (FY2024): <span>~$5.7B</span></div>
+      <div class="stat-pill">Market Cap: <span>~$12.2B</span></div>
+      <div class="stat-pill">Employees: <span>36,000+</span></div>
+      <div class="stat-pill">Divisions: <span>20</span></div>
+      <div class="stat-pill">Segments: <span>3</span></div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card gold">
+        <div class="card-icon">⚙️</div>
+        <div class="card-label">Core Identity</div>
+        <div class="card-value">Motion Control</div>
+        <div class="card-desc">Leading global manufacturer of electric motors, power transmission components, drives, and automation solutions. Formed via merger of Regal Beloit + Rexnord PMC + Altra.</div>
+      </div>
+      <div class="card blue">
+        <div class="card-icon">🌐</div>
+        <div class="card-label">End Markets</div>
+        <div class="card-value">Diverse Verticals</div>
+        <div class="card-desc">Factory automation, food &amp; beverage, aerospace, medical, data centers, energy, residential &amp; commercial buildings, metals &amp; mining, and agriculture.</div>
+      </div>
+      <div class="card green">
+        <div class="card-icon">🏗️</div>
+        <div class="card-label">Structure</div>
+        <div class="card-value">Decentralized</div>
+        <div class="card-desc">Fully decentralized across 20 divisions and 3 segments. Division leaders operate with P&amp;L autonomy. 80+ global facilities across all continents.</div>
+      </div>
+    </div>
+
+    <!-- REGAL ORG CHART -->
+    <div class="org-chart">
+      <div class="org-chart-label">📊 Organizational Structure</div>
+      <div class="org-tree">
+        <div class="org-node top">
+          <div class="org-node-title">Louis Pinkham</div>
+          <div class="org-node-role">CEO (Transition underway)</div>
+        </div>
+        <div class="vline"></div>
+        <div class="hrow">
+          <div class="hrow-item">
+            <div class="vline"></div>
+            <div class="org-node"><div class="org-node-title">Rob Rehard</div><div class="org-node-role">CFO</div></div>
+          </div>
+          <div class="hrow-item">
+            <div class="vline"></div>
+            <div class="org-node"><div class="org-node-title">Board of Directors</div><div class="org-node-role">Hodge, Bakker + independent directors</div></div>
+          </div>
+        </div>
+        <div class="vline"></div>
+        <p class="small-sub" style="margin-bottom:12px;text-align:center;">Three Operating Segments</p>
+        <div class="hrow">
+          <div class="org-seg">
+            <div class="org-seg-title">Automation &amp; Motion Control (AMC)</div>
+            <div class="org-seg-desc">Precision motors, controllers, drives, actuators, aerospace components, conveying systems</div>
+          </div>
+          <div class="org-seg">
+            <div class="org-seg-title">Industrial Powertrain Solutions (IPS)</div>
+            <div class="org-seg-desc">Belt/chain drives, gearing, bearings, couplings — highest revenue segment</div>
+          </div>
+          <div class="org-seg">
+            <div class="org-seg-title">Power Efficiency Solutions (PES)</div>
+            <div class="org-seg-desc">Electric motors, electronic controls, air-moving products, HVAC, generators</div>
+          </div>
+        </div>
+        <div style="margin-top:20px;text-align:center;">
+          <p class="small-sub" style="margin-bottom:8px;">20 Divisions · Fully Decentralized Model</p>
+          <span class="tag">North America</span>
+          <span class="tag">Europe</span>
+          <span class="tag">Asia</span>
+          <span class="tag">Rest of World</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-title" style="font-size:18px;margin-bottom:16px;">Competition Overview</div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Strength Area</th>
+          <th>Overlap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="color:#e8e4dc;font-weight:500;">Siemens Digital Ind.</td><td style="color:#8a8fa8;font-size:12px;">Global PLC leader, end-to-end automation</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">Nidec Corporation</td><td style="color:#8a8fa8;font-size:12px;">Electric motors &amp; motion control</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">ABB Motion</td><td style="color:#8a8fa8;font-size:12px;">Drives, motors, robotics, AI-enabled</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">Emerson Electric</td><td style="color:#8a8fa8;font-size:12px;">Power transmission, industrial automation</td><td><span class="badge badge-med">Medium</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">Rockwell Automation</td><td style="color:#8a8fa8;font-size:12px;">Factory automation overlap in AMC segment</td><td><span class="badge badge-med">Medium</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">Timken Company</td><td style="color:#8a8fa8;font-size:12px;">Bearings, powertrain components</td><td><span class="badge badge-low">Low</span></td></tr>
+      </tbody>
+    </table>
+  </div><!-- /regal panel -->
+
+  <!-- ===== TCS PANEL ===== -->
+  <div id="panel-tcs" class="tab-panel">
+    <div class="section-title">TCS × Rockwell &amp; Regal Rexnord</div>
+    <div class="section-sub">How Tata Consultancy Services can contribute, collaborate, and build long-term partnerships</div>
+
+    <div class="tcs-highlight">
+      <div class="tcs-highlight-title">🌐 TCS at a Glance</div>
+      <div class="tcs-highlight-body">
+        TCS (Tata Consultancy Services) is a $30B+ revenue global IT services and digital transformation leader operating in 55 countries across 202 delivery centers. It has built a strong industrial and manufacturing practice — most recently signing an MoU with ABB (March 2026) to combine ABB's automation leadership with TCS's AI, cloud, and IT capabilities. This positions TCS as a natural strategic partner for industrial automation companies like Rockwell Automation and Regal Rexnord.
+      </div>
+    </div>
+
+    <div class="section-title" style="font-size:18px;margin-bottom:6px;">🔵 TCS × Rockwell Automation</div>
+    <div class="section-sub">Key collaboration and service opportunities</div>
+    <div class="tcs-grid">
+      <div class="tcs-card"><div class="tcs-card-icon">☁️</div><div class="tcs-card-title">IT Infrastructure &amp; Cloud Modernization</div><div class="tcs-card-body">Rockwell's pivot to cloud MES (Plex) and ARR-driven model requires enterprise IT backbone. TCS can manage cloud migration, hybrid infrastructure, SAP/ERP integration, and DevOps pipelines at scale.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">🤖</div><div class="tcs-card-title">AI &amp; Industrial Intelligence</div><div class="tcs-card-body">TCS's AI/ML capabilities can be layered on Rockwell's FactoryTalk suite — enabling predictive maintenance, anomaly detection, and operational intelligence for Rockwell's customer base.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">🔐</div><div class="tcs-card-title">OT/IT Cybersecurity</div><div class="tcs-card-body">With Rockwell's Verve acquisition, TCS can co-deliver OT (Operational Technology) cybersecurity services — a fast-growing need in critical infrastructure, energy, and manufacturing sectors.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">🔧</div><div class="tcs-card-title">Engineering &amp; Product Services</div><div class="tcs-card-body">TCS's embedded engineering practice can support Rockwell in firmware, controls software testing, hardware-software co-design, and product lifecycle management for Allen-Bradley lines.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">📊</div><div class="tcs-card-title">Lifecycle Services Augmentation</div><div class="tcs-card-body">TCS can extend Rockwell's Lifecycle Services segment with managed services, remote NOC/SOC support, 24×7 helpdesk, and field engineering—driving margin expansion.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">🌏</div><div class="tcs-card-title">Global Delivery &amp; Cost Optimization</div><div class="tcs-card-body">Rockwell's global expansion in EMEA/APAC can be supported by TCS's low-cost delivery centers in India, Southeast Asia, and Eastern Europe for IT ops and support functions.</div></div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-title" style="font-size:18px;margin-bottom:6px;">🟡 TCS × Regal Rexnord</div>
+    <div class="section-sub">Key collaboration and service opportunities</div>
+    <div class="tcs-grid">
+      <div class="tcs-card"><div class="tcs-card-icon">🏭</div><div class="tcs-card-title">Manufacturing Operations Transformation</div><div class="tcs-card-body">Regal Rexnord's 80+ global facilities benefit from TCS's smart manufacturing frameworks — integrating MES, SCADA, IoT sensors, and real-time dashboards across 20 decentralized divisions.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">⚙️</div><div class="tcs-card-title">ERP &amp; Supply Chain Digitization</div><div class="tcs-card-body">With a decentralized 20-division model, Regal Rexnord needs unified ERP/SCM visibility. TCS's SAP &amp; Oracle practice can standardize operations and improve planning efficiency.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">📈</div><div class="tcs-card-title">Data &amp; Analytics for AMC Segment</div><div class="tcs-card-body">Regal's Automation &amp; Motion Control segment is growing fastest. TCS can build analytics platforms tracking motor performance, condition data, and predictive failure signals for B2B customers.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">🌱</div><div class="tcs-card-title">Sustainability &amp; ESG Reporting</div><div class="tcs-card-body">Regal Rexnord's published Sustainability Report and energy-efficient mandate aligns with TCS's sustainability practice — enabling carbon tracking, ESG compliance, and green supply chain advisory.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">🔄</div><div class="tcs-card-title">Post-M&amp;A Integration Support</div><div class="tcs-card-body">Regal Rexnord is the product of multiple large mergers (Altra, Rexnord PMC). TCS's integration practice can harmonize IT systems, HR platforms, and customer data across legacy entities.</div></div>
+      <div class="tcs-card"><div class="tcs-card-icon">💼</div><div class="tcs-card-title">Talent &amp; Managed Workforce</div><div class="tcs-card-body">TCS's managed staffing model can support Regal Rexnord's lean HQ with augmented engineering talent, project management, and back-office outsourcing across global facilities.</div></div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-title" style="font-size:18px;margin-bottom:16px;">Strategic Priority Map</div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>TCS Service Area</th>
+          <th>Rockwell Fit</th>
+          <th>Regal Rexnord Fit</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="color:#e8e4dc;font-weight:500;">Cloud &amp; IT Infrastructure</td><td style="color:#8a8fa8;font-size:12px;">High — Plex, FactoryTalk cloud shift</td><td style="color:#8a8fa8;font-size:12px;">Medium — ERP centralization</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">AI / ML Platforms</td><td style="color:#8a8fa8;font-size:12px;">High — Predictive ops on installed base</td><td style="color:#8a8fa8;font-size:12px;">Medium — AMC segment analytics</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">OT Cybersecurity</td><td style="color:#8a8fa8;font-size:12px;">High — Verve + critical infra clients</td><td style="color:#8a8fa8;font-size:12px;">Low — Less software-defined</td><td><span class="badge badge-med">Medium</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">Engineering Services</td><td style="color:#8a8fa8;font-size:12px;">High — Allen-Bradley R&amp;D support</td><td style="color:#8a8fa8;font-size:12px;">High — Motor/drive product lines</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">ERP / SCM</td><td style="color:#8a8fa8;font-size:12px;">Medium — Already partially digitized</td><td style="color:#8a8fa8;font-size:12px;">High — 20 divisions need unification</td><td><span class="badge badge-high">High</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">Sustainability / ESG</td><td style="color:#8a8fa8;font-size:12px;">Medium</td><td style="color:#8a8fa8;font-size:12px;">High — Published sustainability mandate</td><td><span class="badge badge-med">Medium</span></td></tr>
+        <tr><td style="color:#e8e4dc;font-weight:500;">Post M&amp;A Integration</td><td style="color:#8a8fa8;font-size:12px;">Low — Stable base</td><td style="color:#8a8fa8;font-size:12px;">High — Recent large mergers</td><td><span class="badge badge-high">High</span></td></tr>
+      </tbody>
+    </table>
+  </div><!-- /tcs panel -->
+
+  <footer>
+    Research compiled April 2026 · Sources: SEC filings, company websites, PitchBook, public disclosures
+  </footer>
+</div><!-- /container -->
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
 </body>
 </html>
